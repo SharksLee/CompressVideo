@@ -30,9 +30,6 @@ public class CompressProcess extends Thread {
     private int mCurrentPercent = -1;
     private boolean mIsCancel;
 
-    public CompressProcess(String inputPath) {
-        this(inputPath, VideoUtils.getVideoCompressOutPath(inputPath), VideoFormatHelper.RESOLUTION_450P);
-    }
 
     public CompressProcess(String inputPath, String outputPath) {
         this(inputPath, outputPath, VideoFormatHelper.RESOLUTION_450P);
@@ -81,11 +78,9 @@ public class CompressProcess extends Thread {
         }
         try {
             File parentFile = file.getParentFile();
-            if( parentFile.exists() ){
-                parentFile.delete();
+            if (!parentFile.exists()) {
                 parentFile.mkdirs();
-            } else {
-                parentFile.mkdirs();
+
             }
             file.createNewFile();
         } catch (IOException e) {

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startCompress() {
 
-        CompressProcess compressProcess = new CompressProcess("/sdcard/YinYueTai/VID_20190421_200551.mp4", "/sdcard/compress/VID_20190421_200551.mp4");
+        CompressProcess compressProcess = new CompressProcess("/sdcard/YinYueTai/MINISKIRT.mp4", "/sdcard/compress/MINISKIRT.mp4");
         compressProcess.setCompressListener(new ICompressListener() {
             @Override
             public void onStart() {

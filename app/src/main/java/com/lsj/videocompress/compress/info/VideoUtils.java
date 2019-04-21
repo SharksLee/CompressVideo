@@ -5,11 +5,8 @@ import android.media.MediaCodecInfo;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
-import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.lsj.videocompress.compress.file.XLDataType;
-import com.lsj.videocompress.compress.file.XLFileManager;
 
 
 import java.io.File;
@@ -134,23 +131,7 @@ public class VideoUtils {
     }
 
 
-    public static String getVideoCompressOutPath(String sourceSrc) {
-        File file = new File(sourceSrc);
-        String sourceName = file.getName();
-        int index = sourceName.indexOf('.');
 
-        if (index > 0) {
-            String nameWithoutExtension = sourceName.substring(0, index);
-            String extension = sourceName.substring(index);
-            return String.format("%s%s_thumb%s", getVideoDir(), nameWithoutExtension, extension);
-        }
-
-        return String.format("%s%s_thumb", getVideoDir(), sourceName);
-    }
-
-    private static String getVideoDir() {
-        return XLFileManager.getDir(XLDataType.Temp, "thumbVideo");
-    }
 
     /**
      * 是否压缩视频是完整的
